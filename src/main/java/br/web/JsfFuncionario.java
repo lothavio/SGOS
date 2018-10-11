@@ -20,6 +20,7 @@ public class JsfFuncionario {
      * Creates a new instance of JsfFuncionario
      */
     public JsfFuncionario() {
+        
     }
     
 }
