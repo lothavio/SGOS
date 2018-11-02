@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,6 +30,13 @@ public class CrudFuncionario extends AbstractCrud<br.data.entity.Funcionario>{
             em = Persistence.createEntityManagerFactory(EMNames.EMN1, EMNames.getEMN1Props()).createEntityManager();
         }
         return em;
+    }
+    
+    public boolean logar(String email, String senha){
+        getEntityManager();
+        Query query = em.createNativeQuery("SELECT COUNT(1) FROM FUNCIONARIO WHERE EMAIL = ? AND SENHA = ?");
+        Integer count = (Integer) query.getSingleResult();
+        return count > 0;
     }
     
 }
