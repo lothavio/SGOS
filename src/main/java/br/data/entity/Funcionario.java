@@ -33,8 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Funcionario.findByNome", query = "SELECT f FROM Funcionario f WHERE f.nome = :nome")
     , @NamedQuery(name = "Funcionario.findByEmail", query = "SELECT f FROM Funcionario f WHERE f.email = :email")
     , @NamedQuery(name = "Funcionario.findBySenha", query = "SELECT f FROM Funcionario f WHERE f.senha = :senha")
-    , @NamedQuery(name = "Funcionario.findByDataNascimento", query = "SELECT f FROM Funcionario f WHERE f.dataNascimento = :dataNascimento")
-    , @NamedQuery(name = "Funcionario.findByEndereco", query = "SELECT f FROM Funcionario f WHERE f.endereco = :endereco")})
+    , @NamedQuery(name = "Funcionario.findByDataNascimento", query = "SELECT f FROM Funcionario f WHERE f.dataNascimento = :dataNascimento")})
 public class Funcionario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -61,12 +60,9 @@ public class Funcionario implements Serializable {
     private String senha;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "data_nascimento")
+    @Column(name = "datanascimento")
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
-    @Size(max = 50)
-    @Column(name = "endereco")
-    private String endereco;
 
     public Funcionario() {
     }
@@ -121,14 +117,6 @@ public class Funcionario implements Serializable {
 
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
     }
 
     @Override

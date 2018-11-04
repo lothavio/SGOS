@@ -34,8 +34,8 @@ public class CrudFuncionario extends AbstractCrud<br.data.entity.Funcionario>{
     
     public boolean logar(String email, String senha){
         getEntityManager();
-        Query query = em.createNativeQuery("SELECT COUNT(1) FROM FUNCIONARIO WHERE EMAIL = ? AND SENHA = ?");
-        Integer count = (Integer) query.getSingleResult();
+        Query query = em.createNativeQuery("SELECT COUNT(1) FROM FUNCIONARIO WHERE EMAIL = '"+ email +"' AND SENHA = '"+senha+"'");
+        double count = (Long) query.getSingleResult();
         return count > 0;
     }
     
