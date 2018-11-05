@@ -29,7 +29,7 @@ public class JsfLogin implements Serializable {
     public String login(){
         FuncionarioController funcionarioController = new FuncionarioController();
         if (funcionarioController.checarLogin(getEmail(), getSenha())){
-            return "/dash";
+            return "/Estoque.xhtml";
         } else {
             FacesContext.getCurrentInstance().addMessage(
                              null,
