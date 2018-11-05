@@ -41,7 +41,7 @@ public class CrudFuncionarioTest {
     /**
      * Test of getEntityManager method, of class CrudFuncionario.
      */
-    @org.junit.Test
+    @Test
     public void testGetEntityManager() {
         System.out.println("getEntityManager");
         CrudFuncionario instance = new CrudFuncionario();
@@ -49,13 +49,13 @@ public class CrudFuncionarioTest {
         EntityManager result = instance.getEntityManager();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
      * Test of logar method, of class CrudFuncionario.
      */
-    @org.junit.Test
+    @Test
     public void testLogar() {
         System.out.println("logar");
         String email = "";
@@ -65,7 +65,7 @@ public class CrudFuncionarioTest {
         boolean result = instance.logar(email, senha);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
