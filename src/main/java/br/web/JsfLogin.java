@@ -11,6 +11,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,7 +30,11 @@ public class JsfLogin implements Serializable {
     public String login(){
         FuncionarioController funcionarioController = new FuncionarioController();
         if (funcionarioController.checarLogin(getEmail(), getSenha())){
-            return "/dash";
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+            String att = null;
+            session.setAttribute(getEmail(), att);
+            return "Estoque.xhtml?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().addMessage(
                              null,

@@ -16,7 +16,7 @@
         <property name="portNumber" value="5432"/>
         <property name="databaseName" value="sgos"/>
         <property name="User" value="postgres"/>
-        <property name="Password" value="restart24"/>
+        <property name="Password" value="fkdnyh56"/>
         <property name="URL" value="jdbc:postgresql://localhost:5432/sgos"/>
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>
