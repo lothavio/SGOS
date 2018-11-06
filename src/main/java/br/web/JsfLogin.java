@@ -34,7 +34,7 @@ public class JsfLogin implements Serializable {
             HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
             String att = null;
             session.setAttribute(getEmail(), att);
-            return "/JsfDash";
+            return "Estoque.xhtml?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().addMessage(
                              null,
