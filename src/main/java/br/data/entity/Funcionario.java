@@ -39,8 +39,12 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Funcionario.findByNome", query = "SELECT f FROM Funcionario f WHERE f.nome = :nome")
     , @NamedQuery(name = "Funcionario.findByEmail", query = "SELECT f FROM Funcionario f WHERE f.email = :email")
     , @NamedQuery(name = "Funcionario.findBySenha", query = "SELECT f FROM Funcionario f WHERE f.senha = :senha")
-    , @NamedQuery(name = "Funcionario.findByDataNascimento", query = "SELECT f FROM Funcionario f WHERE f.dataNascimento = :dataNascimento")})
+    , @NamedQuery(name = "Funcionario.findByDatanascimento", query = "SELECT f FROM Funcionario f WHERE f.datanascimento = :datanascimento")})
 public class Funcionario implements Serializable {
+
+    @JoinColumn(name = "id_departamento", referencedColumnName = "id")
+    @ManyToOne
+    private Departamento idDepartamento;
 
     @OneToMany(mappedBy = "idFuncionario")
     private Collection<OrdemServico> ordemServicoCollection;
@@ -53,30 +57,19 @@ public class Funcionario implements Serializable {
     @NotNull
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
+    @Size(max = 50)
     @Column(name = "nome")
     private String nome;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="E-mail inválido")//if the field contains email address consider using this annotation to enforce field validation
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
+    @Size(max = 50)
     @Column(name = "email")
     private String email;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 50)
+    @Size(max = 50)
     @Column(name = "senha")
     private String senha;
-    @Basic(optional = false)
-    @NotNull
     @Column(name = "datanascimento")
     @Temporal(TemporalType.DATE)
-    private Date dataNascimento;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_departamento")
-    private Integer id_departamento;
+    private Date datanascimento;
 
     public Funcionario() {
     }
@@ -90,7 +83,7 @@ public class Funcionario implements Serializable {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.dataNascimento = dataNascimento;
+        this.datanascimento = dataNascimento;
     }
 
     public Integer getId() {
@@ -125,12 +118,12 @@ public class Funcionario implements Serializable {
         this.senha = senha;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public Date getDatanascimento() {
+        return datanascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDatanascimento(Date datanascimento) {
+        this.datanascimento = datanascimento;
     }
 
     @Override
@@ -158,36 +151,12 @@ public class Funcionario implements Serializable {
         return "br.data.entity.Funcionario[ id=" + id + " ]";
     }
 
-    /**
-     * @return the id_departamento
-     */
-    public Integer getId_departamento() {
-        return id_departamento;
+    public Departamento getIdDepartamento() {
+        return idDepartamento;
     }
 
-    /**
-     * @param id_departamento the id_departamento to set
-     */
-    public void setId_departamento(Integer id_departamento) {
-        this.id_departamento = id_departamento;
-    }
-
-    @XmlTransient
-    public Collection<OrdemServico> getOrdemServicoCollection() {
-        return ordemServicoCollection;
-    }
-
-    public void setOrdemServicoCollection(Collection<OrdemServico> ordemServicoCollection) {
-        this.ordemServicoCollection = ordemServicoCollection;
-    }
-
-    @XmlTransient
-    public Collection<OrdemServico> getOrdemServicoCollection1() {
-        return ordemServicoCollection1;
-    }
-
-    public void setOrdemServicoCollection1(Collection<OrdemServico> ordemServicoCollection1) {
-        this.ordemServicoCollection1 = ordemServicoCollection1;
+    public void setIdDepartamento(Departamento idDepartamento) {
+        this.idDepartamento = idDepartamento;
     }
     
 }

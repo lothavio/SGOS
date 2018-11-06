@@ -162,7 +162,7 @@ public class FuncionarioTest {
         System.out.println("getDataNascimento");
         Funcionario instance = new Funcionario();
         Date expResult = null;
-        Date result = instance.getDataNascimento();
+        Date result = instance.getDatanascimento();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -176,7 +176,7 @@ public class FuncionarioTest {
         System.out.println("setDataNascimento");
         Date dataNascimento = null;
         Funcionario instance = new Funcionario();
-        instance.setDataNascimento(dataNascimento);
+        instance.setDatanascimento(dataNascimento);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
