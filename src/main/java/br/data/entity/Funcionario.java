@@ -6,19 +6,25 @@
 package br.data.entity;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -35,6 +41,11 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Funcionario.findBySenha", query = "SELECT f FROM Funcionario f WHERE f.senha = :senha")
     , @NamedQuery(name = "Funcionario.findByDataNascimento", query = "SELECT f FROM Funcionario f WHERE f.dataNascimento = :dataNascimento")})
 public class Funcionario implements Serializable {
+
+    @OneToMany(mappedBy = "idFuncionario")
+    private Collection<OrdemServico> ordemServicoCollection;
+    @OneToMany(mappedBy = "idSolicitante")
+    private Collection<OrdemServico> ordemServicoCollection1;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -63,6 +74,9 @@ public class Funcionario implements Serializable {
     @Column(name = "datanascimento")
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_departamento")
+    private Integer id_departamento;
 
     public Funcionario() {
     }
@@ -142,6 +156,38 @@ public class Funcionario implements Serializable {
     @Override
     public String toString() {
         return "br.data.entity.Funcionario[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the id_departamento
+     */
+    public Integer getId_departamento() {
+        return id_departamento;
+    }
+
+    /**
+     * @param id_departamento the id_departamento to set
+     */
+    public void setId_departamento(Integer id_departamento) {
+        this.id_departamento = id_departamento;
+    }
+
+    @XmlTransient
+    public Collection<OrdemServico> getOrdemServicoCollection() {
+        return ordemServicoCollection;
+    }
+
+    public void setOrdemServicoCollection(Collection<OrdemServico> ordemServicoCollection) {
+        this.ordemServicoCollection = ordemServicoCollection;
+    }
+
+    @XmlTransient
+    public Collection<OrdemServico> getOrdemServicoCollection1() {
+        return ordemServicoCollection1;
+    }
+
+    public void setOrdemServicoCollection1(Collection<OrdemServico> ordemServicoCollection1) {
+        this.ordemServicoCollection1 = ordemServicoCollection1;
     }
     
 }
