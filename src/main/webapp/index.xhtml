@@ -8,7 +8,6 @@
     </h:head>
     <h:body>
         <h:form>
-            <p:messages id="messages" />
             <h:outputLabel>Email</h:outputLabel>
             <br />
             <h:inputText value="#{jsfLogin.email}"></h:inputText>
@@ -18,8 +17,9 @@
             <h:inputSecret value="#{jsfLogin.senha}"></h:inputSecret>
             <br />
             <br />
-            <p:commandButton value="Enviar" icon="ui-icon-star" action="#{jsfLogin.login()}" ajax="false">
+            <p:commandButton value="Enviar" action="#{jsfLogin.login()}" ajax="false">
             </p:commandButton>
+            <p:messages id="messages" />
         </h:form>
     </h:body>
 </html>

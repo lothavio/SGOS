@@ -33,8 +33,9 @@ public class JsfLogin implements Serializable {
             FacesContext facesContext = FacesContext.getCurrentInstance();
             HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
             String att = null;
-            session.setAttribute(getEmail(), att);
-            return "Estoque.xhtml?faces-redirect=true";
+            session.setAttribute("email", getEmail());
+            session.setAttribute("nome", funcionarioController.getNome(getEmail()));
+            return "Dashboard.xhtml?faces-redirect=true";
         } else {
             FacesContext.getCurrentInstance().addMessage(
                              null,

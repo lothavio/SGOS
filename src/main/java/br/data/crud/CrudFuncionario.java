@@ -39,4 +39,11 @@ public class CrudFuncionario extends AbstractCrud<br.data.entity.Funcionario>{
         return count > 0;
     }
     
+    public String getFuncionarioNome(String email){
+        getEntityManager();
+        Query query = em.createNativeQuery("SELECT NOME FROM FUNCIONARIO WHERE EMAIL = '"+ email +"'");
+        String nome = (String)query.getSingleResult();
+        return nome;
+    }
+    
 }

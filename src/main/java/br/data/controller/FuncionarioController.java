@@ -12,4 +12,9 @@ public class FuncionarioController {
         return crudFuncionario.logar(email, senha);
     }
     
+    public String getNome(String email){
+        CrudFuncionario crudFuncionario = new CrudFuncionario();
+        return crudFuncionario.getFuncionarioNome(email);
+    }
+    
 }
