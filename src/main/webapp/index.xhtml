@@ -5,19 +5,30 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
+
+
     </h:head>
-    <h:body>
+    <h:body style="background-color: gray; text-align: center; padding-top: 50px; padding-bottom: 50px">
         <h:form>
-            <h:outputLabel>Email</h:outputLabel>
+            <h:outputLabel>Email - <h:inputText value="#{jsfLogin.email}"></h:inputText></h:outputLabel>
             <br />
-            <h:inputText value="#{jsfLogin.email}"></h:inputText>
+
             <br />
-            <h:outputLabel>Senha</h:outputLabel>
+            <h:outputLabel>Senha - <h:inputSecret value="#{jsfLogin.senha}"></h:inputSecret></h:outputLabel>
             <br />
-            <h:inputSecret value="#{jsfLogin.senha}"></h:inputSecret>
+
             <br />
             <br />
-            <p:commandButton value="Enviar" action="#{jsfLogin.login()}" ajax="false">
+            <p:commandButton style="border-radius: 28px; 
+                             background-color: #000000; 
+                             display:inline-block;
+                             cursor:pointer;
+                             color:#ffffff;
+                             font-family:Arial;
+                             font-size:17px;
+                             text-decoration:none;
+                             text-shadow:0px 1px 0px #000000; 
+                             border:1px solid #ffffff"  value="Enviar" action="#{jsfLogin.login()}" ajax="false">
             </p:commandButton>
             <p:messages id="messages" />
         </h:form>
