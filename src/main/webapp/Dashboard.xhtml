@@ -12,10 +12,22 @@ and open the template in the editor.
         <title>Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <h:body>
-        <h:outputText value="Bem vindo #{jsfFuncionario.getSessao()}"></h:outputText>
+    <h:body style="background-color: gray; text-align: center; padding-top: 50px; padding-bottom: 50px">
+        <h:outputText style="font-size: 40px" value="Bem vindo #{jsfFuncionario.getSessao()}"></h:outputText>
         <h:form>
-            <h:commandButton value="estoque" action="#{jsfFuncionarioTi.redirectEstoque()}"></h:commandButton>
+            <h:commandButton style="border-radius: 28px;
+                             background-color: #000000; 
+                             display:inline-block;
+                             cursor:pointer;
+                             color:#ffffff;
+                             font-family:Arial;
+                             font-size:17px;
+                             margin-top: 30px;  
+                             padding: 10px 25px;
+                             text-decoration:none;
+                             text-shadow:0px 1px 0px #000000; 
+                             border:2px solid #ffffff"  
+                             value="estoque" action="#{jsfFuncionarioTi.redirectEstoque()}"></h:commandButton>
         </h:form>
         <br />
     </h:body>
