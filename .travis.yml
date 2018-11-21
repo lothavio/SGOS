@@ -1,6 +1,13 @@
 language: java
 script:
- - mvn test
- - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn test
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 jdk:
- - oraclejdk8
+- oraclejdk8
+deploy:
+  provider: heroku
+  api_key:
+    secure: XMa6B/MTiio/D/17PsEv8zVGyN8aDTXpLMLrT7CNJ7CdirVXURVb/SM8jtlfQxPstfH1dF4zJ/1dLfzZwoqiPsuK1ZVqhjfRgx9Ojrvv1413n+P5iu/vi4oRiLFquF3JQ3WqPUSOIXpdVor1oh/opVgmSR5G7ve5TGoAfnF3NDPfSrk2a70+j3vKt2EnjhO/OqaP6KzxDxRftUYw/oPCjh+8WGswC86ee03eJ1uFqs5KViX9lux9BPmu0dqkuwbRMdVc8hZfLffxiut35qZGcTkBDUoncZhJz1f0/svO4DUWi9YGLEA4Tzy+MptMX+pXIxTdRSvxDY0wN3flKryuj4ejUvshLDNN7HqDsXrC3a7d54mT/SZnTgTmOvomUh6/9L0GC2NtTNWON8HNmcKHNVVRIgxaM1ekDIfOifzOogenPqvzB+TqcWm210m1kddCJ6zza/LqFRH4QUrHnUkf+TNNesFWtshJ+p0490Y7MeTvY/IYc6iLe4JxLnK83L4JdRiLodvkcFUScfR8mdoEDyZYV/iIQR2lpqkweuHe9wbYUk1UFAirDz7+Cah4Q0PBXgeT1OFkIFklx8oFDpeKjPXO7BUY8bCx5OWkj2Ydyr+IVuMZ033su2NR0dkH8/qdjvC4GmQ9yUMAEZn/iw18+kPipI0q6UeObtiOmqlYkfc=
+  app: SGOS
+  on:
+    repo: lothavio/SGOS
