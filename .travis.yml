@@ -1,3 +1,9 @@
+services:
+- postgresql
+before_script:
+ - psql -c 'create database teste;' -U postgres
+ - psql -U postgres -d sgos -f script/database/create_tables.sql                 
+- psql -U postgres -d sgos -f script/database/insert_records.sql
 language: java
 script:
 - mvn test
