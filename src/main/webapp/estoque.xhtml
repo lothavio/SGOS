@@ -16,12 +16,14 @@ and open the template in the editor.
     <h:body>
         <div>
             <h1>Produtos</h1>
+            <h:outputText value="#{jsfFuncionario.sessao}"></h:outputText>
+            <h:outputText value="#{jsfProduto.asd}"></h:outputText>
 
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
 
                 </p:messages>
-                <p:dataTable var="produto" value="#{jsfEstoque.all}">
+                <p:dataTable var="produto" value="#{jsfProduto.all}">
                     <p:column headerText="ID">
                         <h:outputText value="#{produto.id}" />
                     </p:column>
