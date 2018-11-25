@@ -1,22 +1,28 @@
 package br.web;
 
+import br.data.controller.ProdutoController;
+import br.data.entity.Produto;
+import java.util.ArrayList;
+import java.util.List;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
 
 @Named(value = "jsfEstoque")
 @RequestScoped
 public class JsfEstoque {
     
+    private List<Produto> produtos = new ArrayList<Produto>();
+    
     public JsfEstoque(){
-        
     }
     
-    public String getProduto() {
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
-        String sessaoNome = (String)session.getAttribute("nome");
-        return sessaoNome;
+    public List<Produto> getAll() {
+        ProdutoController produtoController = new ProdutoController();
+        produtos = produtoController.getListaEstoque();
+        return produtos;
+    }
+    
+    public List<Produto> getProdutos(){
+        return produtos;
     }
 }

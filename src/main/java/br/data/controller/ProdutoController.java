@@ -2,13 +2,13 @@ package br.data.controller;
 
 
 import br.data.crud.CrudProduto;
+import br.data.entity.Produto;
+import java.util.List;
 
 public class ProdutoController {
-    
-    /*
-    public String getNome(){
+        
+    public List<Produto> getListaEstoque(){
         CrudProduto crudProduto = new CrudProduto();
-        return crudProduto.getProdutoNome();
+        return crudProduto.getProdutos();
     }
-    */
 }

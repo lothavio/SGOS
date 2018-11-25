@@ -15,27 +15,27 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <div>
-            <h1>Listar item do banco</h1>
+            <h1>Produtos</h1>
 
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
 
                 </p:messages>
-                <p:dataTable var="produto" value="#{jsfEstoque.produto}">
+                <p:dataTable var="produto" value="#{jsfEstoque.all}">
                     <p:column headerText="ID">
-                        <h:outputText value="#" />
+                        <h:outputText value="#{produto.id}" />
                     </p:column>
 
                     <p:column headerText="Produto">
-                        <h:outputText value="#" />
+                        <h:outputText value="#{produto.nome}" />
                     </p:column>
 
                     <p:column headerText="Quantidade">
-                        <h:outputText value="#" />
+                        <h:outputText value="#{produto.quantidade}" />
                     </p:column>
 
                     <p:column headerText="Valor">
-                        <h:outputText value="#" />
+                        <h:outputText value="#{produto.valor}" />
                     </p:column>
                 </p:dataTable>
             </h:form>

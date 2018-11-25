@@ -30,7 +30,9 @@ public class CrudProduto extends AbstractCrud<br.data.entity.Produto>{
         return em;
     }
     
-    public List<> getProdutoNome(){
+    public List<Produto> getProdutos(){
         getEntityManager();
+        Query query = em.createQuery("SELECT P FROM PRODUTO P", Produto.class);
+        return (List<Produto>) query.getResultList();
     }
 }
