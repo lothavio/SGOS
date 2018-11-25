@@ -16,30 +16,30 @@ and open the template in the editor.
     <h:body>
         <div>
             <h1>Listar item do banco</h1>
-            
+
             <h:form>
                 <p:messages id="messages" showDetail="true" closable="true">
-                    
+
                 </p:messages>
-                <p:dataTable var="#" value="#">
-                    <p:column headerText="ColumnName">
+                <p:dataTable var="produto" value="#{jsfEstoque.produto}">
+                    <p:column headerText="ID">
                         <h:outputText value="#" />
-                   </p:column>
- 
-                   <p:column headerText="ColumnName">
-                     <h:outputText value="#" />
-                   </p:column>
- 
-                   <p:column headerText="ColumnName">
-                     <h:outputText value="#" />
-                   </p:column>
- 
-                  <p:column headerText="ColumnName">
-                    <h:outputText value="#" />
-                  </p:column>
+                    </p:column>
+
+                    <p:column headerText="Produto">
+                        <h:outputText value="#" />
+                    </p:column>
+
+                    <p:column headerText="Quantidade">
+                        <h:outputText value="#" />
+                    </p:column>
+
+                    <p:column headerText="Valor">
+                        <h:outputText value="#" />
+                    </p:column>
                 </p:dataTable>
             </h:form>
-            </div>
-                
+        </div>
+
     </h:body>
 </html>

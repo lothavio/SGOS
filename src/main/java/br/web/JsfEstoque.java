@@ -5,7 +5,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 
-@Named(value = "jsfProduto")
+@Named(value = "jsfEstoque")
 @RequestScoped
 public class JsfEstoque {
     
