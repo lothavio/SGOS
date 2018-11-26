@@ -38,6 +38,14 @@ and open the template in the editor.
                     <p:column headerText="Valor">
                         <h:outputText value="#{produto.valor}" />
                     </p:column>
+                    
+                    <p:column headerText="Editar">
+                        <h:commandButton value="Editar" action="#{jsfProduto.redirectEditar(produto.id)}"></h:commandButton>
+                    </p:column>
+                    
+                    <p:column headerText="Excluir">
+                        <h:commandButton value="Excluir" action="#"></h:commandButton>
+                    </p:column>
                 </p:dataTable>
             </h:form>
         </div>

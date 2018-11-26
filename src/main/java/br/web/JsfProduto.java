@@ -5,9 +5,12 @@
  */
 package br.web;
 
+import br.data.controller.FornecedorController;
 import br.data.controller.ProdutoController;
+import br.data.entity.Fornecedor;
 import br.data.entity.Produto;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -21,7 +24,12 @@ import javax.faces.view.ViewScoped;
 public class JsfProduto implements Serializable{
     
     List<Produto> produtos;
-    String teste;
+    List<Fornecedor> fornecedores;
+    private String nome;
+    private int quantidade;
+    private BigDecimal valor;
+    private String descricao;
+    private String fornecedor;
     
     public JsfProduto() {
     }
@@ -36,8 +44,84 @@ public class JsfProduto implements Serializable{
         return produtos;
     }
     
-    public String asd(){
-        teste = "teste";
-        return teste;
+    public List<Fornecedor> dropdownFornecedor(){
+        FornecedorController fornecedorController = new FornecedorController();
+        fornecedores = fornecedorController.getListaFornecedor();
+        return fornecedores;
+    }
+    
+    public String redirectEditar(Integer id){
+        String txtId = new Integer(id).toString();
+        return "estoque/editar.xhtml?id="+txtId+"&faces-redirect=true";
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the quantidade
+     */
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    /**
+     * @param quantidade the quantidade to set
+     */
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    /**
+     * @return the valor
+     */
+    public BigDecimal getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+
+    /**
+     * @return the descricao
+     */
+    public String getDescricao() {
+        return descricao;
+    }
+
+    /**
+     * @param descricao the descricao to set
+     */
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    /**
+     * @return the fornecedor
+     */
+    public String getFornecedor() {
+        return fornecedor;
+    }
+
+    /**
+     * @param fornecedor the fornecedor to set
+     */
+    public void setFornecedor(String fornecedor) {
+        this.fornecedor = fornecedor;
     }
 }

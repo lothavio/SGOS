@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Editar Produto</title>
+
+
+    </h:head>
+    <h:body>
+        <h1>Editar Produto</h1>
+        <h:form>
+            <h:outputLabel>Nome - <h:inputText value="#{jsfProduto.nome}"></h:inputText></h:outputLabel>
+            <br />
+
+            <h:outputLabel>Quantidade - <h:inputText value="#{jsfProduto.quantidade}"></h:inputText></h:outputLabel>
+            <br />
+
+            <h:outputLabel>Valor - <h:inputText value="#{jsfProduto.valor}"></h:inputText></h:outputLabel>
+            <br />
+
+            <h:outputLabel>Descricao - <h:inputText value="#{jsfProduto.descricao}"></h:inputText></h:outputLabel>
+            <br />
+            
+            <h:outputLabel>Fornecedor - 
+                <p:selectOneMenu id="fornecedores" value="#{jsfProduto.fornecedor}">
+                    <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{jsfProduto.dropdownFornecedor}" />
+                </p:selectOneMenu>
+            </h:outputLabel>
+
+            <p:commandButton value="Enviar" action="#" ajax="false">
+            </p:commandButton>
+
+            <p:messages id="messages" />
+        </h:form>
+    </h:body>
+</html>
