@@ -7,6 +7,7 @@ package br.web;
 
 import br.data.controller.ProdutoController;
 import br.data.entity.Produto;
+import java.io.Serializable;
 import java.util.List;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -17,7 +18,7 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "jsfProduto")
 @ViewScoped
-public class JsfProduto {
+public class JsfProduto implements Serializable{
     
     List<Produto> produtos;
     String teste;
