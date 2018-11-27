@@ -30,11 +30,13 @@ and open the template in the editor.
             <br />
             
             <h:outputLabel>Fornecedor - 
-                <p:selectOneMenu id="fornecedores" value="#{jsfProduto.fornecedor}">
-                    <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
-                    <f:selectItems value="#{jsfProduto.dropdownFornecedor}" />
+                <p:selectOneMenu>
+                    <f:selectItem itemLabel="Fornecedor" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{jsfProduto.forn}" var="forn" itemLabel="#{forn.nome}" itemValue="#{forn.id}"/>
                 </p:selectOneMenu>
             </h:outputLabel>
+            <br />
+            <br />
 
             <p:commandButton value="Enviar" action="#" ajax="false">
             </p:commandButton>

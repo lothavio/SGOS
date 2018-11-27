@@ -31,7 +31,7 @@ public class CrudFornecedor extends AbstractCrud<br.data.entity.Fornecedor>{
     
     public List<Fornecedor> getFornecedores(){
         getEntityManager();
-        Query query = em.createNativeQuery("SELECT NOME FROM FORNECEDOR", Fornecedor.class);
+        Query query = em.createNativeQuery("SELECT * FROM FORNECEDOR", Fornecedor.class);
         return (List<Fornecedor>) query.getResultList();
     }
     

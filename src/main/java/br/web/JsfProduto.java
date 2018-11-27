@@ -38,13 +38,17 @@ public class JsfProduto implements Serializable{
         return produtos;
     }
     
+    public List<Fornecedor> getFornecedores(){
+        return fornecedores;
+    }
+    
     public List<Produto> getAll(){
         ProdutoController produtoController = new ProdutoController();
         produtos = produtoController.getListaEstoque();
         return produtos;
     }
     
-    public List<Fornecedor> dropdownFornecedor(){
+    public List<Fornecedor> getForn(){
         FornecedorController fornecedorController = new FornecedorController();
         fornecedores = fornecedorController.getListaFornecedor();
         return fornecedores;
