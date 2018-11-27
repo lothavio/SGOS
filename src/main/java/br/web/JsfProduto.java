@@ -12,6 +12,8 @@ import br.data.entity.Produto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
@@ -21,42 +23,64 @@ import javax.faces.view.ViewScoped;
  */
 @Named(value = "jsfProduto")
 @ViewScoped
-public class JsfProduto implements Serializable{
-    
+public class JsfProduto implements Serializable {
+
     List<Produto> produtos;
+    List<Produto> produtoSelecionado;
     List<Fornecedor> fornecedores;
     private String nome;
     private int quantidade;
     private BigDecimal valor;
     private String descricao;
     private String fornecedor;
-    
+
     public JsfProduto() {
     }
+
+    Map<String, String> params = FacesContext.getCurrentInstance().
+            getExternalContext().getRequestParameterMap();
+    String id = params.get("id");
     
-    public List<Produto> getProdutos(){
+    public void editar(){
+        if(id == null){
+        } else {
+            ProdutoController produtoController = new ProdutoController();
+            int idAux = Integer.parseInt(id);
+            produtoSelecionado = produtoController.getSelectProduto(idAux);
+        }
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<Produto> getProdutos() {
         return produtos;
     }
-    
-    public List<Fornecedor> getFornecedores(){
+
+    public List<Fornecedor> getFornecedores() {
         return fornecedores;
     }
-    
-    public List<Produto> getAll(){
+
+    public List<Produto> getAll() {
         ProdutoController produtoController = new ProdutoController();
         produtos = produtoController.getListaEstoque();
         return produtos;
     }
-    
-    public List<Fornecedor> getForn(){
+
+    public List<Fornecedor> getForn() {
         FornecedorController fornecedorController = new FornecedorController();
         fornecedores = fornecedorController.getListaFornecedor();
         return fornecedores;
     }
-    
-    public String redirectEditar(Integer id){
+
+    public String redirectEditar(Integer id) {
         String txtId = new Integer(id).toString();
-        return "estoque/editar.xhtml?id="+txtId+"&faces-redirect=true";
+        return "estoque/editar.xhtml?id=" + txtId + "&faces-redirect=true";
     }
 
     /**

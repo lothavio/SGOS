@@ -11,4 +11,9 @@ public class ProdutoController {
         CrudProduto crudProduto = new CrudProduto();
         return crudProduto.getProdutos();
     }
+    
+    public List<Produto> getSelectProduto(int id){
+        CrudProduto crudProduto = new CrudProduto();
+        return crudProduto.selectProduto(id);
+    }
 }
