@@ -6,7 +6,8 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <h:head>
         <title>Dashboard</title>
@@ -15,8 +16,22 @@ and open the template in the editor.
     <h:body>
         <h:outputText value="Bem vindo #{jsfFuncionario.getSessao()}"></h:outputText>
         <h:form>
-            <h:commandButton value="estoque" action="#{jsfFuncionarioTi.redirectEstoque()}"></h:commandButton>
+            <p:commandButton value="estoque" action="#{jsfFuncionarioTi.redirectEstoque()}"></p:commandButton>
+            
         </h:form>
+        <br>
+        <br>
+            
+        <h2>Ordens de Serviço</h2>
+        <p:dataTable>
+            <p:column headerText="Nome funcionario">#{jsfFuncionario.nome}</p:column>
+            <p:column headerText="Descrição">#</p:column>
+            <p:column headerText="Estado">
+                <p:commandButton value="Finalizado" action="Excluir ordem"
+            </p:column>
+            <p:column></p:column>
+            
+        </p:dataTable>
         <br />
     </h:body>
 </html>

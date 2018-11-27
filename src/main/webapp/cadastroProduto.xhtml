@@ -13,18 +13,21 @@ and open the template in the editor.
     <head>
         <title>Ordem de Serviço</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>     
-            <h:form>
-                <p:messages id="messages" showDetail="true" closable="true">
-                    
-                </p:messages>
-                <p>Nome do Funcionario</p>
-                <p:inputText required ="true"/>
-                <p>Descricao</p>
-                <p:inputTextarea rows="10" cols="50" required="true"/>
-                <p:commandButton value="Enviar" action=""></p:commandButton>
+    </head>  
+    <h1>Cadastrar Produtos</h1>
+    <br>
+        <h:form>
+            
                  
-            </h:form>
+        </h:form>
+        <p:dataTable value="#{jsfProduto}" var="prod" style="border: 1">
+            <p:column>#{prod}</p:column>
+            <p:column>#{prod}</p:column>
+            <p:column>#{prod}</p:column>
+            <p:column>#{prod}</p:column>
+            
+            
+        </p:dataTable>
         
     
 </html>

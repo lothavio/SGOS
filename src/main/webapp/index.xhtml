@@ -10,11 +10,11 @@
     </h:head>
     <h:body style="background-color: gray; text-align: center; padding-top: 50px; padding-bottom: 50px">
         <h:form>
-            <h:outputLabel>Email - <h:inputText value="#{jsfLogin.email}"></h:inputText></h:outputLabel>
+            <p:outputLabel>Email - <h:inputText value="#{jsfLogin.email}"></h:inputText></p:outputLabel>
             <br />
 
             <br />
-            <h:outputLabel>Senha - <h:inputSecret value="#{jsfLogin.senha}"></h:inputSecret></h:outputLabel>
+            <p:outputLabel>Senha - <h:inputSecret value="#{jsfLogin.senha}"></h:inputSecret></p:outputLabel>
             <br />
 
             <br />
@@ -32,6 +32,8 @@
             </p:commandButton>
             <p:messages id="messages" />
         </h:form>
+        <br />
+        
     </h:body>
 </html>
 
