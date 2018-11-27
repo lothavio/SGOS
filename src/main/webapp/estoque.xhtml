@@ -23,7 +23,7 @@ and open the template in the editor.
 
                 </p:messages>
                 
-                <p:dataTable var="produto" value="#{jsfProduto.all}">
+                <p:dataTable var="produto" value="#{jsfProduto.all}" style="border: 1">
                     <p:column headerText="ID">
                         <h:outputText value="#{produto.id}" />
                     </p:column>
@@ -40,11 +40,11 @@ and open the template in the editor.
                         <h:outputText value="#{produto.valor}" />
                     </p:column>
                     
-                    <p:column headerText="Editar">
+                    <p:column headerText="Editar" style="width: 80">
                         <h:commandButton value="Editar" action="#{jsfProduto.redirectEditar(produto.id)}"></h:commandButton>
                     </p:column>
                     
-                    <p:column headerText="Excluir">
+                    <p:column headerText="Excluir" style="width: 80">
                         <h:commandButton value="Excluir" action="#"></h:commandButton>
                     </p:column>
                 </p:dataTable>
