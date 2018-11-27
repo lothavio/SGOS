@@ -13,13 +13,25 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
+        <p:outputLabel>Nome - <h:inputText value="#{jsfCadastro.nome}">
+            </h:inputText>
+            </p:outputLabel>
+            <br />
+        <p:outputLabel>Email - <h:inputText value="#{jsfCadastro.email}">
+            </h:inputText>
+            </p:outputLabel>
+        <br />
+
+        <br />
+        <p:outputLabel>Senha - <h:inputSecret value="#{jsfCadastro.senha}">
+            </h:inputSecret>
+            </p:outputLabel>
+        <br />
+        <p:outputLabel>Data de nascimento <h:inputText value="#{jsfCadastro.nacimento}">
+            </h:inputText>
+            </p:outputLabel>
+        <br />
+        <p:commandButton value="Cadastrar" action="#{jsfCadastro.cadastrar()}"></p:commandButton>
         
-            <h:outputText value=""/>
-            <p:inputText value="">
-           
-            <h:outputText value=""/>
-            <h:inputText value="">
-            
-            <p:commandButton value=""/>
-    </body>
+          
 </html>
