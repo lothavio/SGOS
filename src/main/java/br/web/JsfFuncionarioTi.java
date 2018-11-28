@@ -36,8 +36,5 @@ public class JsfFuncionarioTi {
     public String redirectOrdem(){
         return "ordemServico.xhtml?faces-redirect=true";
     }
-    public String redirectProdut (){
-        return "cadastroProduto.xhtml?faces-redirect=true";
-    }
-    
+
 }

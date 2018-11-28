@@ -15,24 +15,9 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>  
     <h1>Cadastrar Produtos</h1>
-    
+    <br>
         <h:form>
-            <p:panelGrid columns ="5">
-                <h:form enctype ="multipart/form-data">
-                    <h3>ID</h3>
-                    <p:inputText value="#{jsfProduto.id()}"/>
-                    <h3>Nome</h3>
-                    <p:inputText value="#{jsfProduto.nome()}"/>
-                    <h3>Quantidade</h3>
-                    <p:inputText value="#{jsfProduto.quantidade()}"/>
-                    <h3>Valor</h3>
-                    <p:inputText value="#{jsfProduto.valor()}"/>
-                    <h3>Descrição</h3>
-                    <p:inputText value="#{jsfProduto.descricao()}"/>
-                    <h3>Fornecedor</h3>
-                    <p:inputText value="#{jsfProduto.fornecedor()}"/>
-                </h:form>
-            </p:panelGrid>
+            
                  
         </h:form>
         <p:dataTable value="#{jsfProduto}" var="prod" style="border: 1">
