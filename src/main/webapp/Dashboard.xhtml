@@ -15,21 +15,19 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <h:outputText value="Bem vindo #{jsfFuncionario.getSessao()}"></h:outputText>
-        <br />
-        <br />
         <h:form>
             <p:commandButton value="estoque" action="#{jsfFuncionarioTi.redirectEstoque()}"></p:commandButton>
             
         </h:form>
-        <br />
+        <br>
+        <br>
             
         <h2>Ordens de Serviço</h2>
-        <br />
         <p:dataTable>
             <p:column headerText="Nome funcionario">#{jsfFuncionario.nome}</p:column>
             <p:column headerText="Descrição">#</p:column>
             <p:column headerText="Estado">
-                <p:commandButton value="Finalizado" action="Excluir ordem"></p:commandButton>
+                <p:commandButton value="Finalizado" action="Excluir ordem"
             </p:column>
             <p:column></p:column>
             
