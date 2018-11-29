@@ -82,6 +82,10 @@ public class JsfProduto implements Serializable {
         String txtId = new Integer(id).toString();
         return "estoque/editar.xhtml?id=" + txtId + "&faces-redirect=true";
     }
+    
+    public String redirectAdicionar(){
+        return "estoque/adicionar.xhtml?faces-redirect=true";
+    }
 
     /**
      * @return the nome
