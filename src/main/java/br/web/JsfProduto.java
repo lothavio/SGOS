@@ -41,12 +41,14 @@ public class JsfProduto implements Serializable {
             getExternalContext().getRequestParameterMap();
     String id = params.get("id");
     
-    public void editar(){
+    public List<Produto> editar(){
         if(id == null){
+            return null;
         } else {
             ProdutoController produtoController = new ProdutoController();
             int idAux = Integer.parseInt(id);
             produtoSelecionado = produtoController.getSelectProduto(idAux);
+            return produtoSelecionado;
         }
     }
 
