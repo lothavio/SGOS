@@ -18,7 +18,7 @@ and open the template in the editor.
         <h1>Editar Produto</h1>
         <h1>#{jsfProduto.id}</h1>
         <h:form>
-            <h:outputLabel>Nome - <h:inputText value="#{jsfProduto.editar().get(0)}"></h:inputText></h:outputLabel>
+            <h:outputLabel>Nome - <h:inputText value="#{jsfProduto.editar[0].nome}"></h:inputText></h:outputLabel>
             <br />
 
             <h:outputLabel>Quantidade - <h:inputText value="#{jsfProduto.quantidade}"></h:inputText></h:outputLabel>

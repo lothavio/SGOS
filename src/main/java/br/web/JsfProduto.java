@@ -11,6 +11,7 @@ import br.data.entity.Fornecedor;
 import br.data.entity.Produto;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import javax.faces.context.FacesContext;
@@ -40,17 +41,6 @@ public class JsfProduto implements Serializable {
     Map<String, String> params = FacesContext.getCurrentInstance().
             getExternalContext().getRequestParameterMap();
     String id = params.get("id");
-    
-    public List<Produto> editar(){
-        if(id == null){
-            return null;
-        } else {
-            ProdutoController produtoController = new ProdutoController();
-            int idAux = Integer.parseInt(id);
-            produtoSelecionado = produtoController.getSelectProduto(idAux);
-            return produtoSelecionado;
-        }
-    }
 
     public String getId() {
         return id;
@@ -78,6 +68,17 @@ public class JsfProduto implements Serializable {
         FornecedorController fornecedorController = new FornecedorController();
         fornecedores = fornecedorController.getListaFornecedor();
         return fornecedores;
+    }
+    
+    public List<Produto> editar(){
+        if(id == null){
+            return null;
+        } else {
+            ProdutoController produtoController = new ProdutoController();
+            int idAux = Integer.parseInt(id);
+            produtoSelecionado = produtoController.getSelectProduto(idAux);
+            return produtoSelecionado;
+        }
     }
 
     public String redirectEditar(Integer id) {

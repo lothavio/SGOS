@@ -7,6 +7,7 @@ package br.data.crud;
 
 
 import br.data.entity.Produto;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
@@ -36,7 +37,7 @@ public class CrudProduto extends AbstractCrud<br.data.entity.Produto>{
     
     public List<Produto> selectProduto(int id){
         getEntityManager();
-        Query query = em.createNamedQuery("SELECT * FROM PRODUTO WHERE ID = "+id, Produto.class);
-        return (List<Produto>) query.getResultList();
+        Query query = em.createNamedQuery("SELECT P FROM PRODUTO P WHERE P.ID = "+id, Produto.class);
+        return (List<Produto>) query.getSingleResult();
     }
 }
