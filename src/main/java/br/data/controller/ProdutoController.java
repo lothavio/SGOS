@@ -13,7 +13,7 @@ public class ProdutoController {
         return crudProduto.getProdutos();
     }
     
-    public List<Produto> getSelectProduto(int id){
+    public Produto getSelectProduto(int id){
         CrudProduto crudProduto = new CrudProduto();
         return crudProduto.selectProduto(id);
     }

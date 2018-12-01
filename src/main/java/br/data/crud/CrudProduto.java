@@ -35,9 +35,10 @@ public class CrudProduto extends AbstractCrud<br.data.entity.Produto>{
         return (List<Produto>) query.getResultList();
     }
     
-    public List<Produto> selectProduto(int id){
+    public Produto selectProduto(int id){
         getEntityManager();
-        Query query = em.createNamedQuery("SELECT P FROM PRODUTO P WHERE P.ID = "+id, Produto.class);
-        return (List<Produto>) query.getSingleResult();
+        Query query = em.createNamedQuery("Produto.findById", Produto.class);
+        query.setParameter("id", id);
+        return (Produto) query.getSingleResult();
     }
 }
