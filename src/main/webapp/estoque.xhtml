@@ -12,6 +12,11 @@ and open the template in the editor.
     <h:head>
         <title>Estoque</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script>
+            function checkDelete() {
+                return confirm('Tem certeza que quer deletar este usuário?');
+            }
+        </script>
     </h:head>
     <h:body>
         <div>
@@ -22,7 +27,7 @@ and open the template in the editor.
                 <p:messages id="messages" showDetail="true" closable="true">
 
                 </p:messages>
-                
+
                 <p:dataTable var="produto" value="#{jsfProduto.all}" style="border: 1">
                     <p:column headerText="ID">
                         <h:outputText value="#{produto.id}" />
@@ -39,13 +44,13 @@ and open the template in the editor.
                     <p:column headerText="Valor">
                         <h:outputText value="#{produto.valor}" />
                     </p:column>
-                    
+
                     <p:column headerText="Editar" style="width: 80">
                         <h:commandButton value="Editar" action="#{jsfProduto.redirectEditar(produto)}"></h:commandButton>
                     </p:column>
-                    
+
                     <p:column headerText="Excluir" style="width: 80">
-                        <h:commandButton value="Excluir" action="#"></h:commandButton>
+                        <h:commandButton value="Excluir" action="#{jsfProduto.deletarProduto(produto.id)}" onclick="return checkDelete()"></h:commandButton>
                     </p:column>
                 </p:dataTable>
             </h:form>

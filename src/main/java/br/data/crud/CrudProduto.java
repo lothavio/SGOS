@@ -41,4 +41,9 @@ public class CrudProduto extends AbstractCrud<br.data.entity.Produto>{
         query.setParameter("id", id);
         return (Produto) query.getSingleResult();
     }
+    
+    public void deleteProduto(int id){
+        getEntityManager();
+        Query query = em.createNativeQuery("DELETE FROM PRODUTO P WHERE P.ID = "+ id, Produto.class);
+    }
 }

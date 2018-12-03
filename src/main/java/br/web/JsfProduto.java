@@ -12,6 +12,7 @@ import br.data.entity.Produto;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
@@ -71,6 +72,17 @@ public class JsfProduto implements Serializable {
         FornecedorController fornecedorController = new FornecedorController();
         fornecedores = fornecedorController.getListaFornecedor();
         return fornecedores;
+    }
+    
+    public String deletarProduto(int id){
+        int idDel = id;
+        ProdutoController produtoController = new ProdutoController();
+        produtoController.delete(idDel);
+        FacesContext.getCurrentInstance().addMessage(
+                             null,
+                             new FacesMessage(FacesMessage.SEVERITY_INFO, "PRODUTO DELETADO " + idDel,
+                                         "com sucesso"));
+        return "estoque.xhtml";
     }
 
     public String redirectEditar(Produto produto) {
