@@ -18,17 +18,18 @@ and open the template in the editor.
     <br>
         <h:form>
             <p:outputLabel>Id</p:outputLabel>
-            <p:inputText ></p:inputText>
+            <p:inputText value = "#{jsfProduto.produtoSelecionado.id}"></p:inputText>
             
             <p:outputLabel>nome</p:outputLabel>
-            <p:inputText></p:inputText>
+            <p:inputText value = "#{jsfProduto.produtoSelecionado.nome}"></p:inputText>
             
             <p:outputLabel>Quantidade</p:outputLabel>
-            <p:inputText></p:inputText>
+            <p:inputText value="#{jsfProduto.produtoSelecionado.quantidade}"></p:inputText>
             
             <p:outputLabel>valor</p:outputLabel>
-            <p:inputText> </p:inputText>
-        
+            <p:inputText value="#{jsfProduto.produtoSelecionado.valor}"> </p:inputText>
+            
+            <p:commandButton value="Adicionar" action="#{jsfProduto.setProduto(produto)}"></p:commandButton>
                  
         </h:form>
         
