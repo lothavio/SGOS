@@ -60,6 +60,10 @@ public class JsfProduto implements Serializable {
     public List<Fornecedor> getFornecedores() {
         return fornecedores;
     }
+    public List<Produto> setProduto(Produto produto){
+        produtos.add(produtoSelecionado);
+        return produtos;
+    }
 
     public List<Produto> getAll() {
         ProdutoController produtoController = new ProdutoController();
@@ -81,8 +85,10 @@ public class JsfProduto implements Serializable {
     public int getTesteId(){
         return this.testeid;
     }
-
+    
+    
     public String redirectAdicionar() {
         return "estoque/adicionar.xhtml?faces-redirect=true";
     }
+    
 }
