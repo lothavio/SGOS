@@ -7,10 +7,12 @@ package br.web;
 
 import br.data.controller.FornecedorController;
 import br.data.controller.ProdutoController;
+import br.data.crud.CrudFornecedor;
 import br.data.crud.CrudProduto;
 import br.data.entity.Fornecedor;
 import br.data.entity.Produto;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import javax.faces.application.FacesMessage;
@@ -31,6 +33,13 @@ public class JsfProduto implements Serializable {
     List<Fornecedor> fornecedores;
     Produto produtoSelecionado;
     int testeid;
+    
+    private int idUp;
+    private String nomeUp;
+    private String descricaoUp;
+    private int quantidadeUp;
+    private BigDecimal valorUp;
+    private int idFornecedorUp;
 
     public JsfProduto() {
     }
@@ -73,6 +82,54 @@ public class JsfProduto implements Serializable {
         return produtos;
     }
 
+    public int getIdUp() {
+        return idUp;
+    }
+
+    public void setIdUp(int idUp) {
+        this.idUp = idUp;
+    }
+
+    public String getNomeUp() {
+        return nomeUp;
+    }
+
+    public void setNomeUp(String nomeUp) {
+        this.nomeUp = nomeUp;
+    }
+
+    public String getDescricaoUp() {
+        return descricaoUp;
+    }
+
+    public void setDescricaoUp(String descricaoUp) {
+        this.descricaoUp = descricaoUp;
+    }
+
+    public int getQuantidadeUp() {
+        return quantidadeUp;
+    }
+
+    public void setQuantidadeUp(int quantidadeUp) {
+        this.quantidadeUp = quantidadeUp;
+    }
+
+    public BigDecimal getValorUp() {
+        return valorUp;
+    }
+
+    public void setValorUp(BigDecimal valorUp) {
+        this.valorUp = valorUp;
+    }
+
+    public int getIdFornecedorUp() {
+        return idFornecedorUp;
+    }
+
+    public void setIdFornecedorUp(int idFornecedorUp) {
+        this.idFornecedorUp = idFornecedorUp;
+    }
+
     public List<Fornecedor> getForn() {
         FornecedorController fornecedorController = new FornecedorController();
         fornecedores = fornecedorController.getListaFornecedor();
@@ -94,8 +151,40 @@ public class JsfProduto implements Serializable {
     }
 
     public String redirectEditar(Produto produto) {
-        this.produtoSelecionado = produto;
+        //this.produtoSelecionado = produto;
+        this.idUp = produto.getId();
+        this.nomeUp = produto.getNome();
+        this.descricaoUp = produto.getDescricao();
+        this.quantidadeUp = produto.getQuantidade();
+        this.valorUp = produto.getValor();
+        this.idFornecedorUp = produto.getIdFornecedor().getId();
         return "estoque/editar.xhtml";
+    }
+    
+    public String merge(){
+        Produto prod;
+        prod = new br.data.crud.CrudProduto().find(this.idUp);
+        prod.setNome(nomeUp);
+        prod.setDescricao(descricaoUp);
+        prod.setValor(valorUp);
+        prod.setQuantidade(quantidadeUp);
+        prod.setIdFornecedor(new CrudFornecedor().find(this.idFornecedorUp));
+        Exception e = new br.data.crud.CrudProduto().merge(prod);
+        if (e == null) {
+            this.setIdUp(0);
+            this.setNomeUp("");
+            this.setQuantidadeUp(0);
+            this.setValorUp(0);
+            this.setDescricaoUp("");
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro alterado com sucesso");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        } else {
+            String msg = e.getMessage();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+        return "/estoque/index.xhtml";
     }
     
     public int getTesteId(){
@@ -105,6 +194,10 @@ public class JsfProduto implements Serializable {
     
     public String redirectAdicionar() {
         return "estoque/adicionar.xhtml?faces-redirect=true";
+    }
+
+    private void setValorUp(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

@@ -16,28 +16,27 @@ and open the template in the editor.
         <h1>Editar Produto</h1>
         <h:form>
             <h2>#{jsfProduto.produtoSelecionado.id}</h2>
-            <h:outputLabel>Nome - <h:inputText value="#{jsfProduto.produtoSelecionado.nome}"></h:inputText></h:outputLabel>
+            <h:outputLabel>Nome - <h:inputText value="#{jsfProduto.nomeUp}"></h:inputText></h:outputLabel>
             <br />
 
-            <h:outputLabel>Quantidade - <h:inputText value="#{jsfProduto.produtoSelecionado.quantidade}"></h:inputText></h:outputLabel>
+            <h:outputLabel>Quantidade - <h:inputText value="#{jsfProduto.quantidadeUp}"></h:inputText></h:outputLabel>
             <br />
 
-            <h:outputLabel>Valor - <h:inputText value="#{jsfProduto.produtoSelecionado.valor}"></h:inputText></h:outputLabel>
+            <h:outputLabel>Valor - <h:inputText value="#{jsfProduto.valorUp}"></h:inputText></h:outputLabel>
             <br />
 
-            <h:outputLabel>Descricao - <h:inputText value="#{jsfProduto.produtoSelecionado.descricao}"></h:inputText></h:outputLabel>
+            <h:outputLabel>Descricao - <h:inputText value="#{jsfProduto.descricaoUp}"></h:inputText></h:outputLabel>
             <br />
             
             <h:outputLabel>Fornecedor - 
-                <p:selectOneMenu>
-                    <f:selectItem itemLabel="Fornecedor" itemValue="" noSelectionOption="true" />
-                    <f:selectItems value="#{jsfProduto.forn}" var="forn" itemLabel="#{forn.nome}" itemValue="#{jsfProduto.produtoSelecionado.idFornecedor}"/>
+                <p:selectOneMenu value="#{jsfProduto.idFornecedorUp}">
+                    <f:selectItems value="#{jsfProduto.forn}" var="forn" itemLabel="#{forn.nome}" itemValue="#{forn.id}"/>
                 </p:selectOneMenu>
             </h:outputLabel>
             <br />
             <br />
 
-            <p:commandButton value="Editar" action="#" ajax="false">
+            <p:commandButton value="Editar" action="#{jsfProduto.merge()}" ajax="false">
             </p:commandButton>
 
             <p:messages id="messages" />
