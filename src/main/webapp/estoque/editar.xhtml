@@ -15,7 +15,11 @@ and open the template in the editor.
     <h:body>
         <h1>Editar Produto</h1>
         <h:form>
-            <h2>#{jsfProduto.produtoSelecionado.id}</h2>
+            <h2>#{jsfProduto.idUp}</h2>
+            <p:outputLabel value="#{jsfProduto.idUp}"  />
+            <h:inputHidden value="#{jsfProduto.idUp}"  />
+            <br />
+            
             <h:outputLabel>Nome - <h:inputText value="#{jsfProduto.nomeUp}"></h:inputText></h:outputLabel>
             <br />
 

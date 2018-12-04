@@ -8,11 +8,8 @@ package br.data.crud;
 import java.util.List;
 import javax.persistence.EntityManager;
 
-/**
- *
- * @author erick
- */
 public abstract class AbstractCrud<T> {
+
     private Class<T> entityClass;
 
     public AbstractCrud(Class<T> entityClass) {
@@ -86,4 +83,5 @@ public abstract class AbstractCrud<T> {
         javax.persistence.Query q = getEntityManager().createQuery(cq);
         return ((Long) q.getSingleResult()).intValue();
     }
+
 }

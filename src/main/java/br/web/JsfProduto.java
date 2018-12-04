@@ -150,7 +150,7 @@ public class JsfProduto implements Serializable {
         }
     }
 
-    public String redirectEditar(Produto produto) {
+    public String redirectEditar(br.data.entity.Produto produto) {
         //this.produtoSelecionado = produto;
         this.idUp = produto.getId();
         this.nomeUp = produto.getNome();
@@ -162,19 +162,20 @@ public class JsfProduto implements Serializable {
     }
     
     public String merge(){
-        Produto prod;
-        prod = new br.data.crud.CrudProduto().find(this.idUp);
+        br.data.entity.Produto prod;
+        CrudProduto crudProd = new CrudProduto();
+        prod = crudProd.find(this.idUp);
         prod.setNome(nomeUp);
         prod.setDescricao(descricaoUp);
         prod.setValor(valorUp);
         prod.setQuantidade(quantidadeUp);
         prod.setIdFornecedor(new CrudFornecedor().find(this.idFornecedorUp));
-        Exception e = new br.data.crud.CrudProduto().merge(prod);
+        Exception e = crudProd.merge(prod);
         if (e == null) {
             this.setIdUp(0);
             this.setNomeUp("");
             this.setQuantidadeUp(0);
-            this.setValorUp(0);
+            this.setValorUp(BigDecimal.ZERO);
             this.setDescricaoUp("");
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro alterado com sucesso");
             FacesContext.getCurrentInstance().addMessage(null, message);
@@ -184,7 +185,7 @@ public class JsfProduto implements Serializable {
             FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
             FacesContext.getCurrentInstance().addMessage(null, message);
         }
-        return "/estoque/index.xhtml";
+        return "/estoque.xhtml";
     }
     
     public int getTesteId(){
@@ -194,10 +195,6 @@ public class JsfProduto implements Serializable {
     
     public String redirectAdicionar() {
         return "estoque/adicionar.xhtml?faces-redirect=true";
-    }
-
-    private void setValorUp(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
