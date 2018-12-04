@@ -17,8 +17,4 @@ public class ProdutoController {
         CrudProduto crudProduto = new CrudProduto();
         return crudProduto.selectProduto(id);
     }
-    
-    public void delete(int id){
-        CrudProduto crudProduto = new CrudProduto();
-    }
 }

@@ -13,36 +13,35 @@ and open the template in the editor.
     <head>
         <title>Ordem de Serviço</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>  
-    <h1>Cadastrar Produtos</h1>
-    <br>
+    </head>
+    <h:body>
+        <h1>Cadastrar Produtos</h1>
+        <br />
         <h:form>
             <p:outputLabel>Id</p:outputLabel>
             <p:inputText value = "#{jsfProduto.produtoSelecionado.id}"></p:inputText>
-            
+
             <p:outputLabel>nome</p:outputLabel>
             <p:inputText value = "#{jsfProduto.produtoSelecionado.nome}"></p:inputText>
-            
+
             <p:outputLabel>Quantidade</p:outputLabel>
             <p:inputText value="#{jsfProduto.produtoSelecionado.quantidade}"></p:inputText>
-            
+
             <p:outputLabel>valor</p:outputLabel>
             <p:inputText value="#{jsfProduto.produtoSelecionado.valor}"> </p:inputText>
-            
+
             <p:commandButton value="Adicionar" action="#{jsfProduto.setProduto(produto)}"></p:commandButton>
-                 
+
         </h:form>
-        
-        
+
+
         <p:commandButton></p:commandButton>
-        <p:dataTable value="#{jsfProduto}" var="prod" style="border: 1">
+        <p:dataTable value="#{jsfProduto.all}" var="prod" style="border: 1">
             <p:column>#{prod.id}</p:column>
             <p:column>#{prod.nome}</p:column>
             <p:column>#{prod.quantidade}</p:column>
             <p:column>#{prod.valor}</p:column>
-            
-            
         </p:dataTable>
-        
-    
+
+    </h:body>
 </html>

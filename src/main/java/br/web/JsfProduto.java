@@ -7,6 +7,7 @@ package br.web;
 
 import br.data.controller.FornecedorController;
 import br.data.controller.ProdutoController;
+import br.data.crud.CrudProduto;
 import br.data.entity.Fornecedor;
 import br.data.entity.Produto;
 import java.io.Serializable;
@@ -78,15 +79,18 @@ public class JsfProduto implements Serializable {
         return fornecedores;
     }
     
-    public String deletarProduto(int id){
-        int idDel = id;
-        ProdutoController produtoController = new ProdutoController();
-        produtoController.delete(idDel);
-        FacesContext.getCurrentInstance().addMessage(
-                             null,
-                             new FacesMessage(FacesMessage.SEVERITY_INFO, "PRODUTO DELETADO " + idDel,
-                                         "com sucesso"));
-        return "estoque.xhtml";
+    public void deletarProduto(br.data.entity.Produto produto){
+        CrudProduto crudProduto = new CrudProduto();
+        Exception e = crudProduto.remove(produto);
+         if (e == null) {
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro excluido com sucesso");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        } else {
+            String msg = e.getMessage();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
     }
 
     public String redirectEditar(Produto produto) {
