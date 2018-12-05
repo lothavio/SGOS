@@ -136,6 +136,35 @@ public class JsfProduto implements Serializable {
         return fornecedores;
     }
     
+    public String persist() {
+        br.data.entity.Produto prod;
+        prod = new br.data.entity.Produto();
+        prod.setId(idUp);
+        prod.setNome(nomeUp);
+        prod.setDescricao(descricaoUp);
+        prod.setQuantidade(quantidadeUp);
+        prod.setValor(valorUp);
+        prod.setIdFornecedor(new CrudFornecedor().find(this.getIdFornecedorUp()));
+        Exception insert = new br.data.crud.CrudProduto().persist(prod);
+        if (insert == null) {
+            this.setIdUp(0);
+            this.setNomeUp("");
+            this.setDescricaoUp("");
+            this.setQuantidadeUp(0);
+            this.setValorUp(BigDecimal.ZERO);
+            this.setIdFornecedorUp(0);
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso!!", "Registro adicionado com sucesso");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+
+        } else {
+            String msg = insert.getMessage();
+            FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Informe o administrador do erro: " + msg);
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            return null;
+        }
+        return "/estoque.xhtml";
+    }
+    
     public void deletarProduto(br.data.entity.Produto produto){
         CrudProduto crudProduto = new CrudProduto();
         Exception e = crudProduto.remove(produto);
@@ -194,7 +223,7 @@ public class JsfProduto implements Serializable {
     
     
     public String redirectAdicionar() {
-        return "estoque/adicionar.xhtml?faces-redirect=true";
+        return "estoque/adicionar.xhtml";
     }
     
 }

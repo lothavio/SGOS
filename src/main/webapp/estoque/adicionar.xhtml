@@ -5,12 +5,51 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>Adicionar Produto</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>Adicionar Produto</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastrar Produto</title>
+    </h:head>
+    <h:body>
+        <h1>Cadastrar Produtos</h1>
+        <br />
+        <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                </p:messages>
+            
+                ID:
+                <p:inputText value="#{jsfProduto.idUp}"  />
+
+                <br></br>
+                Nome:
+                <p:inputText value="#{jsfProduto.nomeUp}" />
+                
+                <br></br>
+                Descricao:
+                <p:inputText value="#{jsfProduto.descricaoUp}" />
+                
+                <br></br>
+                Quantidade: 
+                <p:inputText value="#{jsfProduto.quantidadeUp}" />
+                
+                <br></br>
+                Valor: 
+                <p:inputText value="#{jsfProduto.valorUp}" />
+                
+                <br></br>
+                Fornecedor: 
+                <p:selectOneMenu value="#{jsfProduto.idFornecedorUp}" required="true" requiredMessage="Selecione uma opção no menu Fornecedor    ">
+                    <f:selectItem  itemLabel="=== selecione um ==="/>
+                    <f:selectItems value="#{jsfProduto.forn}" var="forn" itemLabel="#{forn.nome}" itemValue="#{forn.id}"/>
+                </p:selectOneMenu>
+
+                <br></br>
+                <p:commandButton value="salvar novo registro" action="#{jsfProduto.persist()}"  ajax="false"/> 
+
+            </h:form>
+
+    </h:body>
 </html>
