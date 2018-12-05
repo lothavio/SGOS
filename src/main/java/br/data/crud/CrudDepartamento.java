@@ -5,8 +5,11 @@
  */
 package br.data.crud;
 
+import br.data.entity.Departamento;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -25,6 +28,12 @@ public class CrudDepartamento extends AbstractCrud<br.data.entity.Departamento>{
             em = Persistence.createEntityManagerFactory(EMNames.EMN1, EMNames.getEMN1Props()).createEntityManager();
         }
         return em;
+    }
+    
+    public List<Departamento> getDepartamentos(){
+        getEntityManager();
+        Query query = em.createNativeQuery("SELECT * FROM DEPARTAMENTO", Departamento.class);
+        return (List<Departamento>) query.getResultList();
     }
     
 }
