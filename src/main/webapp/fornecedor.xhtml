@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Fornecedores</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script>
+            function checkDelete() {
+                return confirm('Tem certeza que quer deletar este usuário?');
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <div>
+            <h1>Fornecedores</h1>
+
+            <h:form>
+                <p:commandButton value="Cadastrar Fornecedores" action="#{jsfFornecedor.redirectAdicionar()}"></p:commandButton>
+                <p:messages id="messages" showDetail="true" closable="true">
+                    
+                </p:messages>
+
+                <p:dataTable var="fornecedor" value="#{jsfFornecedor.all}" style="border: 1">
+                    <p:column headerText="ID">
+                        <h:outputText value="#{fornecedor.id}" />
+                    </p:column>
+
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{fornecedor.nome}" />
+                    </p:column>
+
+                    <p:column headerText="CNPJ">
+                        <h:outputText value="#{fornecedor.cnpj}" />
+                    </p:column>
+
+                    <p:column headerText="Editar" style="width: 80">
+                        <h:commandButton value="Editar" action="#{jsfFornecedor.redirectEditar(fornecedor)}"></h:commandButton>
+                    </p:column>
+
+                    <p:column headerText="Excluir" style="width: 80">
+                        <h:commandButton value="Excluir" action="#{jsfFornecedor.deletarFornecedor(fornecedor)}" onclick="return checkDelete()"></h:commandButton>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </div>
+
+    </h:body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"    
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastrar Fornecedor</title>
+    </h:head>
+    <h:body>
+        <h1>Cadastrar Fornecedor</h1>
+        <br />
+        <h:form>
+                <p:messages id="messages" showDetail="true" closable="true">
+                </p:messages>
+            
+                ID:
+                <p:inputText value="#{jsfFornecedor.idUp}"  />
+
+                <br></br>
+                Nome:
+                <p:inputText value="#{jsfFornecedor.nomeUp}" />
+                
+                <br></br>
+                CNPJ: 
+                <p:inputText value="#{jsfFornecedor.cnpjUp}" />
+                
+                <br></br>
+                Endereço:  
+                <p:inputText value="#{jsfFornecedor.enderecoUp}" />
+
+                <br></br>
+                <p:commandButton value="salvar novo registro" action="#{jsfFornecedor.persist()}"  ajax="false"/> 
+
+            </h:form>
+
+    </h:body>
+</html>

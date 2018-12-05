@@ -29,6 +29,14 @@ public class JsfFuncionarioTi {
         return "estoque.xhtml?faces-redirect=true";
     }
     
+    public String redirectFornecedor(){
+        return "fornecedor.xhtml?faces-redirect=true";
+    }
+    
+    public String redirectDepartamento(){
+        return "departamento.xhtml?faces-redirect=true";
+    }
+    
     public String redirectCadastroFuncionario(){
         return "cadastroFuncionario.xhtml?faces-redirect=true";
     }
