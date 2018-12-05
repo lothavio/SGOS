@@ -18,11 +18,16 @@ and open the template in the editor.
                 <p:messages id="messages" showDetail="true" closable="true">
                     
                 </p:messages>
-                <p>Nome do Funcionario</p>
-                <p:inputText required ="true"/>
+                <h4>ID do Funcionario</h4>
+                <p:inputText required ="true" value="#{jsfOrdem.idSolicitante}"/>
+                
+                <h4>ID do Reparador</h4>
+                <p:inputText required ="true" value="#{jsfOrdem.idFunc}"/>
                 <p>Descricao</p>
-                <p:inputTextarea rows="10" cols="50" required="true"/>
-                <p:commandButton value="Enviar" action=""></p:commandButton>
+                <p:inputTextarea rows="10" cols="50" required="true"
+                                 value="#{jsfOrdem.descricaoOrdem}"/>
+                
+                <p:commandButton value="Enviar" action="#{jsfOrdem.setOrdem(Ordem)}"></p:commandButton>
                  
             </h:form>
         

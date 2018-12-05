@@ -28,11 +28,12 @@ and open the template in the editor.
         <h2>Ordens de Serviço</h2>
 	<br />
         <p:dataTable>
-            <p:column headerText="Nome funcionario">#{jsfFuncionario.nome}</p:column>
-            <p:column headerText="Descrição">#</p:column>
-            <p:column headerText="Estado">
-                <p:commandButton value="Finalizado" action="Excluir ordem"></p:commandButton>
-            </p:column>
+            <p:column headerText="iD ordem">#{jsfOrdem.id}</p:column>
+            <p:column headerText="ID Solicitante" >#{jsfOrdem.idSolicitante}</p:column>
+            
+            <p:column headerText="ID Funcionario" >#{jsfOrdem.idFunc}</p:column>
+            
+            <p:column headerText="Descrição" >#{jsfOrdem.descricaoOrdem}</p:column>
             <p:column></p:column>
             
         </p:dataTable>

@@ -166,5 +166,13 @@ public class OrdemServico implements Serializable {
     public String toString() {
         return "br.data.entity.OrdemServico[ id=" + id + " ]";
     }
+
+    public void setIdFuncionario(int idSolicitante) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setIdSolicitante(int idSolicitante) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
