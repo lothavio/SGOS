@@ -18,35 +18,104 @@ and open the template in the editor.
             }
         </script>
     </h:head>
-    <h:body>
+    <h:body style="background-color: gray; 
+            text-align: center; 
+            padding-top: 50px; 
+            padding-bottom: 50px">
         <div>
             <h1>Fornecedores</h1>
-
+            
             <h:form>
-                <p:commandButton value="Cadastrar Fornecedores" action="#{jsfFornecedor.redirectAdicionar()}"></p:commandButton>
+            <p:commandButton style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;
+                             margin-bottom: 20px" value="Página Inicial" action="#{jsfProduto.redirectDashboard()}"></p:commandButton>
+            </h:form>
+            
+            <h:form>
+                <p:commandButton 
+                    style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;
+                             margin-bottom: 20px"
+                    value="Cadastrar Fornecedores" action="#{jsfFornecedor.redirectAdicionar()}"></p:commandButton>
                 <p:messages id="messages" showDetail="true" closable="true">
                     
                 </p:messages>
 
                 <p:dataTable var="fornecedor" value="#{jsfFornecedor.all}" style="border: 1">
-                    <p:column headerText="ID">
+                    <p:column 
+                        style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                        headerText="ID">
                         <h:outputText value="#{fornecedor.id}" />
                     </p:column>
 
-                    <p:column headerText="Nome">
+                    <p:column 
+                        style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                        headerText="Nome">
                         <h:outputText value="#{fornecedor.nome}" />
                     </p:column>
 
-                    <p:column headerText="CNPJ">
+                    <p:column 
+                        style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                        headerText="CNPJ">
                         <h:outputText value="#{fornecedor.cnpj}" />
                     </p:column>
 
-                    <p:column headerText="Editar" style="width: 80">
-                        <h:commandButton value="Editar" action="#{jsfFornecedor.redirectEditar(fornecedor)}"></h:commandButton>
+                    <p:column 
+                        style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                        headerText="Editar">
+                        <h:commandButton 
+                            style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:1px solid grey;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+                            value="X" action="#{jsfFornecedor.redirectEditar(fornecedor)}"></h:commandButton>
                     </p:column>
 
-                    <p:column headerText="Excluir" style="width: 80">
-                        <h:commandButton value="Excluir" action="#{jsfFornecedor.deletarFornecedor(fornecedor)}" onclick="return checkDelete()"></h:commandButton>
+                    <p:column 
+                        style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                        headerText="Excluir">
+                        <h:commandButton
+                            style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:1px solid grey;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+                            value="X" action="#{jsfFornecedor.deletarFornecedor(fornecedor)}" onclick="return checkDelete()"></h:commandButton>
                     </p:column>
                 </p:dataTable>
             </h:form>

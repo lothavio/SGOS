@@ -21,14 +21,24 @@ and open the template in the editor.
                 </p:messages>
             
                 ID:
-                <p:inputText value="#{jsfDepartamento.idUp}"  />
+                <p:inputText style="margin-left: 63px" value="#{jsfDepartamento.idUp}"  />
 
                 <br></br>
                 Nome:
-                <p:inputText value="#{jsfDepartamento.nomeUp}" />
+                <p:inputText style="margin-left: 40px" value="#{jsfDepartamento.nomeUp}" />
 
                 <br></br>
-                <p:commandButton value="salvar novo registro" action="#{jsfDepartamento.persist()}"  ajax="false"/> 
+                <p:commandButton 
+                    style="
+                             border-radius: 28px;
+                             margin-top: 20px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+
+                    value="salvar novo registro" action="#{jsfDepartamento.persist()}"  ajax="false"/> 
 
             </h:form>
 

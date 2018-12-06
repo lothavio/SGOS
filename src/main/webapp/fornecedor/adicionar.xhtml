@@ -21,22 +21,32 @@ and open the template in the editor.
                 </p:messages>
             
                 ID:
-                <p:inputText value="#{jsfFornecedor.idUp}"  />
+                <p:inputText style="margin-left: 63px" value="#{jsfFornecedor.idUp}"  />
 
                 <br></br>
                 Nome:
-                <p:inputText value="#{jsfFornecedor.nomeUp}" />
+                <p:inputText style="margin-left: 40px" value="#{jsfFornecedor.nomeUp}" />
                 
                 <br></br>
                 CNPJ: 
-                <p:inputText value="#{jsfFornecedor.cnpjUp}" />
+                <p:inputText style="margin-left: 43px" value="#{jsfFornecedor.cnpjUp}" />
                 
                 <br></br>
                 Endereço:  
-                <p:inputText value="#{jsfFornecedor.enderecoUp}" />
+                <p:inputText style="margin-left: 20px" value="#{jsfFornecedor.enderecoUp}" />
 
                 <br></br>
-                <p:commandButton value="salvar novo registro" action="#{jsfFornecedor.persist()}"  ajax="false"/> 
+                <p:commandButton 
+                    style="
+                             border-radius: 28px;
+                             margin-top: 20px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+
+                    value="salvar novo registro" action="#{jsfFornecedor.persist()}"  ajax="false"/> 
 
             </h:form>
 

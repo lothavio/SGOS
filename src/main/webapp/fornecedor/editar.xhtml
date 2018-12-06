@@ -12,7 +12,10 @@ and open the template in the editor.
     <h:head>
         <title>Editar Fornecedor</title>
     </h:head>
-    <h:body>
+    <h:body style="background-color: gray; 
+            text-align: center; 
+            padding-top: 50px; 
+            padding-bottom: 50px">
         <h1>Editar Fornecedor</h1>
         <h:form>
             <h2>#{jsfFornecedor.idUp}</h2>
@@ -30,7 +33,16 @@ and open the template in the editor.
             <br />
             <br />
 
-            <p:commandButton value="Editar" action="#{jsfFornecedor.merge()}" ajax="false">
+            <p:commandButton 
+                style="
+                             border-radius: 28px;
+                             margin-top: 20px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+                value="Editar" action="#{jsfFornecedor.merge()}" ajax="false">
             </p:commandButton>
 
             <p:messages id="messages" />

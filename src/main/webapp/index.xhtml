@@ -19,16 +19,15 @@
 
             <br />
             <br />
-            <p:commandButton style="border-radius: 28px; 
-                             background-color: #000000; 
-                             display:inline-block;
-                             cursor:pointer;
-                             color:#ffffff;
+            <p:commandButton 
+                style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
                              font-family:Arial;
-                             font-size:17px;
-                             text-decoration:none;
-                             text-shadow:0px 1px 0px #000000; 
-                             border:1px solid #ffffff"  value="Enviar" action="#{jsfLogin.login()}" ajax="false">
+                             font-size:17px;"
+                value="Enviar" action="#{jsfLogin.login()}" ajax="false">
             </p:commandButton>
             <p:messages id="messages" />
         </h:form>
