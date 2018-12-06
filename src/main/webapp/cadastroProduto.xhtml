@@ -30,7 +30,16 @@ and open the template in the editor.
             <p:outputLabel>valor</p:outputLabel>
             <p:inputText value="#{jsfProduto.produtoSelecionado.valor}"> </p:inputText>
 
-            <p:commandButton value="Adicionar" action="#{jsfProduto.setProduto(produto)}"></p:commandButton>
+            <p:commandButton 
+                style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+                value="Adicionar" 
+                action="#{jsfProduto.setProduto(produto)}"></p:commandButton>
 
         </h:form>
 
@@ -44,4 +53,4 @@ and open the template in the editor.
         </p:dataTable>
 
     </h:body>
-</html>
+</html> 

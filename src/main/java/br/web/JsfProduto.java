@@ -226,4 +226,8 @@ public class JsfProduto implements Serializable {
         return "estoque/adicionar.xhtml";
     }
     
+    public String redirectDashboard(){
+        return "Dashboard.xhtml";
+    }
+    
 }

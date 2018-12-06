@@ -13,28 +13,91 @@ and open the template in the editor.
         <title>Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
-    <h:body>
-        <h:outputText value="Bem vindo #{jsfFuncionario.getSessao()}"></h:outputText>
+    <h:body style="background-color: gray; 
+            text-align: center; 
+            padding-top: 50px; 
+            padding-bottom: 50px">
+        <h:outputText style="font-family: arial;
+                      font-size: 25px;" 
+                      value="Bem vindo #{jsfFuncionario.getSessao()}"></h:outputText>
         <br />
 	<br />
 	<h:form>
-            <p:commandButton value="estoque" action="#{jsfFuncionarioTi.redirectEstoque()}"></p:commandButton>
-            <p:commandButton value="fornecedores" action="#{jsfFuncionarioTi.redirectFornecedor()}"></p:commandButton>
-            <p:commandButton value="departamentos" action="#{jsfFuncionarioTi.redirectDepartamento()}"></p:commandButton>
+            <p:commandButton 
+                            style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+                             value="estoque" 
+                             action="#{jsfFuncionarioTi.redirectEstoque()}"></p:commandButton>
+            <p:commandButton 
+                            style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"   
+                             value="fornecedores" 
+                             action="#{jsfFuncionarioTi.redirectFornecedor()}"></p:commandButton>
+            <p:commandButton  
+                             style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+
+                             value="departamentos" 
+                             action="#{jsfFuncionarioTi.redirectDepartamento()}"></p:commandButton>
             
         </h:form>
         <br />
             
         <h2>Ordens de Serviço</h2>
 	<br />
-        <p:dataTable>
-            <p:column headerText="iD ordem">#{jsfOrdem.id}</p:column>
-            <p:column headerText="ID Solicitante" >#{jsfOrdem.idSolicitante}</p:column>
+        <p:dataTable style="background-color: black">
+            <p:column 
+                style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                headerText="ID ordem">#{jsfOrdem.id}</p:column>
+            <p:column 
+                style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                headerText="ID Solicitante" >#{jsfOrdem.idSolicitante}</p:column>
             
-            <p:column headerText="ID Funcionario" >#{jsfOrdem.idFunc}</p:column>
+            <p:column 
+                style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                headerText="ID Funcionario" >#{jsfOrdem.idFunc}</p:column>
             
-            <p:column headerText="Descrição" >#{jsfOrdem.descricaoOrdem}</p:column>
-            <p:column></p:column>
+            <p:column 
+                style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+                headerText="Descrição" >#{jsfOrdem.descricaoOrdem}</p:column>
+            <p:column 
+                style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;"
+            ></p:column>
             
         </p:dataTable>
         <br />

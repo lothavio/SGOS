@@ -18,39 +18,107 @@ and open the template in the editor.
             }
         </script>
     </h:head>
-    <h:body>
+    <h:body style="background-color: gray; text-align: center; padding-top: 50px; padding-bottom: 50px">
         <div>
-            <h1>Produtos</h1>
-
+            <h1 style="font-size: 40px">Produtos</h1>
+            
             <h:form>
-                <p:commandButton value="Cadastrar Produtos" action="#{jsfProduto.redirectAdicionar()}"></p:commandButton>
+            <p:commandButton style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;
+                             margin-bottom: 20px" value="Página Inicial" action="#{jsfProduto.redirectDashboard()}"></p:commandButton>
+            </h:form>
+            <h:form>
+                <p:commandButton style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:2px solid #000000;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;
+                             margin-bottom: 20px" value="Cadastrar Produtos" action="#{jsfProduto.redirectAdicionar()}"
+                             ></p:commandButton>
+                
                 <p:messages id="messages" showDetail="true" closable="true">
                     
                 </p:messages>
 
                 <p:dataTable var="produto" value="#{jsfProduto.all}" style="border: 1">
-                    <p:column headerText="ID">
+                    <p:column headerText="ID"
+                              style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;">
                         <h:outputText value="#{produto.id}" />
                     </p:column>
 
-                    <p:column headerText="Produto">
+                    <p:column headerText="Produto"
+                              style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;">
                         <h:outputText value="#{produto.nome}" />
                     </p:column>
 
-                    <p:column headerText="Quantidade">
+                    <p:column headerText="Quantidade" 
+                              style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;">
                         <h:outputText value="#{produto.quantidade}" />
                     </p:column>
 
-                    <p:column headerText="Valor">
+                    <p:column headerText="Valor"
+                              style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;">
                         <h:outputText value="#{produto.valor}" />
                     </p:column>
 
-                    <p:column headerText="Editar" style="width: 80">
-                        <h:commandButton value="Editar" action="#{jsfProduto.redirectEditar(produto)}"></h:commandButton>
+                    <p:column headerText="Editar" 
+                              style="background-color: whitesmoke; 
+                       border:2px solid #000000;
+                       color: black;
+                       font-family:Arial;
+                       font-size:17px;">
+                        <h:commandButton 
+                            style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:1px solid grey;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+                            value="X" 
+                            action="#{jsfProduto.redirectEditar(produto)}"></h:commandButton>
                     </p:column>
 
-                    <p:column headerText="Excluir" style="width: 80">
-                        <h:commandButton value="Excluir" action="#{jsfProduto.deletarProduto(produto)}" onclick="return checkDelete()"></h:commandButton>
+                    <p:column headerText="Excluir" 
+                              style="background-color: whitesmoke; 
+                                    border:2px solid #000000;
+                                    color: black;
+                                    font-family:Arial;
+                                    font-size:17px;">
+                        <h:commandButton 
+                            style="
+                             border-radius: 28px;
+                             background-color: whitesmoke; 
+                             border:1px solid grey;
+                             color: black;
+                             font-family:Arial;
+                             font-size:17px;"
+                            value="X" 
+                            action="#{jsfProduto.deletarProduto(produto)}" 
+                            onclick="return checkDelete()"></h:commandButton>
                     </p:column>
                 </p:dataTable>
             </h:form>
