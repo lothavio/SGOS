@@ -12,26 +12,39 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-    <body>
-        <p:outputLabel>Nome - <h:inputText value="#{jsfCadastro.nome}">
+    <body style="background-color: gray; 
+    text-align: center; 
+    padding-top: 50px; 
+    padding-bottom: 50px">
+        <p:outputLabel style="font-family: arial;
+        font-size: 25px">Nome - <h:inputText value="#{jsfCadastro.nome}">
             </h:inputText>
             </p:outputLabel>
             <br />
-        <p:outputLabel>Email - <h:inputText value="#{jsfCadastro.email}">
+        <p:outputLabel style="font-family: arial;
+        font-size: 25px">Email - <h:inputText value="#{jsfCadastro.email}">
             </h:inputText>
             </p:outputLabel>
         <br />
 
         <br />
-        <p:outputLabel>Senha - <h:inputSecret value="#{jsfCadastro.senha}">
+        <p:outputLabel style="font-family: arial;
+        font-size: 25px">Senha - <h:inputSecret value="#{jsfCadastro.senha}">
             </h:inputSecret>
             </p:outputLabel>
         <br />
-        <p:outputLabel>Data de nascimento <h:inputText value="#{jsfCadastro.nacimento}">
+        <p:outputLabel style="font-family: arial;
+        font-size: 25px">Data de nascimento <h:inputText value="#{jsfCadastro.nacimento}">
             </h:inputText>
             </p:outputLabel>
         <br />
-        <p:commandButton value="Cadastrar" action="#{jsfCadastro.cadastrar()}"></p:commandButton>
+        <p:commandButton  style="
+        border-radius: 28px;
+        background-color: whitesmoke; 
+        border:2px solid #000000;
+        color: black;
+        font-family:Arial;
+        font-size:17px;"value="Cadastrar" action="#{jsfCadastro.cadastrar()}"></p:commandButton>
         
           
 </html>
