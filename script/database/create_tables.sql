@@ -1,5 +1,5 @@
--- Script criação das tabelas
-
+-- Script criaÃ§Ã£o das tabelas
+-- Lucas Concato
 CREATE TABLE public.departamento
 (
     id integer NOT NULL,
@@ -17,7 +17,7 @@ ALTER TABLE public.departamento
 -- Table: public.equipamento
 
 -- DROP TABLE public.equipamento;
-
+-- Lucas Concato
 CREATE TABLE public.equipamento
 (
     id_departamento integer NOT NULL,
@@ -75,7 +75,7 @@ ALTER TABLE public.equipamento_ordem
 -- Table: public.fornecedor
 
 -- DROP TABLE public.fornecedor;
-
+-- Lucas Concato
 CREATE TABLE public.fornecedor
 (
     id integer NOT NULL,
