@@ -21,10 +21,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 
-/**
- *
- * @author erick
- */
+
 @ManagedBean(name = "jsfProduto")
 @ViewScoped
 public class JsfProduto implements Serializable {
